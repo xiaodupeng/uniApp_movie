@@ -16,7 +16,12 @@ export default class Request {
                 success: (res) => {
                     // 将结果抛出
                     resolve(res.data)
-                }
+                },
+				complete:()=>{
+					uni.hideNavigationBarLoading()
+					uni.hideLoading()
+					uni.stopPullDownRefresh();
+				}
             })
         })    
     }

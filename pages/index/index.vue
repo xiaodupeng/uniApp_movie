@@ -129,15 +129,27 @@
 				this.noticeItem = res.data
 			})
 			
-			like().then(res=>{
-				// console.log(res)
-				this.likeItem = res.data
-			})
+			this.getLikeData()
+		},
+		onPullDownRefresh() {
+			this.getLikeData()
 		},
 		methods: {
 			gotest(){
 				uni.navigateTo({
 					url:"../test/test"
+				})
+			},
+			
+			getLikeData(){
+				uni.showLoading({
+					mask:true
+				})
+				uni.showNavigationBarLoading()
+				like().then(res=>{
+					if(res.status == 200){
+						this.likeItem = res.data
+					}
 				})
 			},
 			

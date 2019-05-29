@@ -6,7 +6,7 @@
 				// "navigationBarBackgroundColor": "#F8F8F8",
 				// "navigationBarTextStyle": "black",
 				// "navigationBarTitleText": "",
-				// "enablePullDownRefresh":true
+				"enablePullDownRefresh":true,
 				"app-plus": {"titleNView": false},
 				"h5":{
 					"titleNView": false
@@ -18,14 +18,17 @@
 			"style": {
 				"navigationBarBackgroundColor": "#F8F8F8",
 				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "about",
-				"enablePullDownRefresh":true
+				"navigationBarTitleText": "about"
+				// "enablePullDownRefresh":true
 				// "app-plus": {"titleNView": false}
 			}
 		}
 	    ,{
             "path" : "pages/search/search",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "搜索",
+				"enablePullDownRefresh":true
+			}
         }
         
         ,{

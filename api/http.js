@@ -1,6 +1,6 @@
 import Request from '../api/request.js';
 let request = new Request().http
-let qq = 'lee82577299'
+let qq = 'lee46262772'
 
 // 轮播图
 export const swiper = () =>{
@@ -21,3 +21,9 @@ export const notice = () =>{
 export const like = () =>{
 	 return request('/index/guessULike',{qq:qq},'POST')
 }
+
+//搜索
+export const search = (num) =>{
+	 return request('/search/list',{qq:qq,keywords:"",page:num,pageSize:""},'POST')
+}
+
