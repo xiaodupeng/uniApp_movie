@@ -1,0 +1,1 @@
+<template name="63ba1035"><view class="_view M63ba1035"><view class="_view M63ba1035 content" wx:key="index" key="{{index}}" wx:for="{{student}}" wx:for-index="index" wx:for-item="item"><text class="_text M63ba1035 {{[isred ? 'red' : 'blue']}}">{{item.name}}</text></view></view></template>
