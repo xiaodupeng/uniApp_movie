@@ -1119,6 +1119,7 @@ if( __WXML_GLOBAL__.ops_cached.$gwx_7)return __WXML_GLOBAL__.ops_cached.$gwx_7
 __WXML_GLOBAL__.ops_cached.$gwx_7=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'019c1696'])
+Z([[7],[3,'showMore']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_7);return __WXML_GLOBAL__.ops_cached.$gwx_7
 }
 function gz$gwx_8(){
@@ -1333,6 +1334,13 @@ gg.f=$gdc(f_["./pages/search/search.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[9]);return}
 p_[b]=true
 try{
+var oB=_v()
+_(r,oB)
+if(_oz(z,1,e,s,gg)){oB.wxVkey=1
+cs.push("./pages/search/search.vue.wxml:view:1:743")
+cs.pop()
+}
+oB.wxXCkey=1
 }catch(err){
 p_[b]=false
 throw err
@@ -1438,10 +1446,10 @@ __wxAppCode__['app.wxml']=$gwx('./app.wxml');
 __wxAppCode__['pages/index/index.json']={"usingComponents":{},"enablePullDownRefresh":true,"titleNView":false};
 __wxAppCode__['pages/index/index.wxml']=$gwx('./pages/index/index.wxml');
 
-__wxAppCode__['pages/me/me.json']={"usingComponents":{},"navigationBarBackgroundColor":"#F8F8F8","navigationBarTextStyle":"black","navigationBarTitleText":"about","enablePullDownRefresh":true};
+__wxAppCode__['pages/me/me.json']={"usingComponents":{},"navigationBarBackgroundColor":"#F8F8F8","navigationBarTextStyle":"black","navigationBarTitleText":"about"};
 __wxAppCode__['pages/me/me.wxml']=$gwx('./pages/me/me.wxml');
 
-__wxAppCode__['pages/search/search.json']={"usingComponents":{},"navigationBarTitleText":"搜索"};
+__wxAppCode__['pages/search/search.json']={"usingComponents":{},"navigationBarTitleText":"搜索","enablePullDownRefresh":true};
 __wxAppCode__['pages/search/search.wxml']=$gwx('./pages/search/search.wxml');
 
 __wxAppCode__['pages/test/test.json']={"usingComponents":{}};
@@ -1749,7 +1757,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.search = exports.like = exports.notice = exports.hot = exports.swiper = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ../api/request.js */ \"E:\\\\TEST\\\\uniApp_movie\\\\api\\\\request.js\"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}\nvar request = new _request.default().http;\nvar qq = 'lee46262772';\n\n// 轮播图\nvar swiper = function swiper() {\n  return request('/index/carousel/list', { qq: qq }, 'POST');\n};\n\n// 热门\nexports.swiper = swiper;var hot = function hot() {\n  return request('/index/movie/hot', { qq: qq, type: 'superhero' }, 'POST');\n};\n\n//预告\nexports.hot = hot;var notice = function notice() {\n  return request('/index/movie/hot', { qq: qq, type: 'trailer' }, 'POST');\n};\n\n//喜欢\nexports.notice = notice;var like = function like() {\n  return request('/index/guessULike', { qq: qq }, 'POST');\n};\n\n//搜索\nexports.like = like;var search = function search() {\n  return request('/search/list', { qq: qq, keywords: \"\", page: \"\", pageSize: \"\" }, 'POST');\n};exports.search = search;\n\n//# sourceURL=uni-app:///api/http.js?1255");
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.search = exports.like = exports.notice = exports.hot = exports.swiper = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ../api/request.js */ \"E:\\\\TEST\\\\uniApp_movie\\\\api\\\\request.js\"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}\nvar request = new _request.default().http;\nvar qq = 'lee32897867';\n\n// 轮播图\nvar swiper = function swiper() {\n  return request('/index/carousel/list', { qq: qq }, 'POST');\n};\n\n// 热门\nexports.swiper = swiper;var hot = function hot() {\n  return request('/index/movie/hot', { qq: qq, type: 'superhero' }, 'POST');\n};\n\n//预告\nexports.hot = hot;var notice = function notice() {\n  return request('/index/movie/hot', { qq: qq, type: 'trailer' }, 'POST');\n};\n\n//喜欢\nexports.notice = notice;var like = function like() {\n  return request('/index/guessULike', { qq: qq }, 'POST');\n};\n\n//搜索\nexports.like = like;var search = function search(keywords, page, pageSize) {\n  return request('/search/list', { qq: qq, keywords: keywords, page: page, pageSize: pageSize }, 'POST');\n};exports.search = search;\n\n//# sourceURL=uni-app:///api/http.js?1255");
 
 /***/ }),
 
@@ -2090,7 +2098,7 @@ define('pages/search/search.js',function(require, module, exports, window, docum
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar _http = __webpack_require__(/*! ../../api/http.js */ \"E:\\\\TEST\\\\uniApp_movie\\\\api\\\\http.js\");var _default =\n{\n  data: function data() {\n    return {\n      searchItem: [] };\n\n  },\n  onLoad: function onLoad() {var _this = this;\n    (0, _http.search)().then(function (res) {\n      _this.searchItem = res.data.rows;\n      console.log(res);\n    });\n  },\n  methods: {} };exports.default = _default;\n\n//# sourceURL=uni-app:///pages/search/search.vue?vue&type=script&lang=js&?52e6");
+eval("/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar _http = __webpack_require__(/*! ../../api/http.js */ \"E:\\\\TEST\\\\uniApp_movie\\\\api\\\\http.js\");var _default =\n{\n  data: function data() {\n    return {\n      page: 1,\n      keywords: \"\",\n      showMore: false,\n      more: \"加载更多...\",\n      searchItem: [] };\n\n  },\n  onLoad: function onLoad() {\n    this.getSearchList();\n  },\n  onPullDownRefresh: function onPullDownRefresh() {\n    this.getSearchList();\n    this.showMore = false;\n  },\n  onReachBottom: function onReachBottom() {var _this = this;\n    var page = ++this.page;\n    if (this.more == '我是有底线的') {\n      return;\n    }\n\n    (0, _http.search)(this.keywords, page, 15).then(function (res) {\n      _this.showMore = true;\n      if (res.data.rows.length == 0) {\n        _this.more = '我是有底线的';\n      } else {\n        _this.more = '加载更多...';\n        _this.searchItem = _this.searchItem.concat(res.data.rows);\n      }\n    });\n\n  },\n  methods: {\n    random: function random(lower, upper) {\n      return Math.floor(Math.random() * (upper - lower)) + lower;\n    },\n    //随机获取列表1-6页内容\n    getSearchList: function getSearchList() {var _this2 = this;\n      uni.showLoading({\n        mask: true,\n        title: \"请稍后...\" });\n\n      var keywords = \"\";\n      var num = this.random(1, 6);\n      var pageSize = \"\";\n      (0, _http.search)(keywords, num, pageSize).then(function (res) {\n        _this2.searchItem = res.data.rows;\n      });\n    },\n    sure: function sure(e) {var _this3 = this;\n      this.page = 1;\n      this.more = '';\n      this.keywords = e.detail.value;\n      (0, _http.search)(this.keywords, 1, 15).then(function (res) {\n        if (res.data.rows.length == 0) {\n          _this3.searchItem = [];\n          _this3.showMore = true;\n          _this3.more = '暂无数据';\n        } else {\n          _this3.searchItem = res.data.rows;\n        }\n      });\n    } } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ \"./node_modules/@dcloudio/uni-app-plus/dist/index.js\")[\"default\"]))\n\n//# sourceURL=uni-app:///pages/search/search.vue?vue&type=script&lang=js&?52e6");
 
 /***/ }),
 
@@ -2113,7 +2121,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=E:/TEST/uniApp_mo
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"view\", { staticClass: \"page\" }, [\n    _vm._m(0),\n    _c(\n      \"view\",\n      { staticClass: \"page_block conten_list\" },\n      _vm._l(_vm.searchItem, function(item, index) {\n        return _c(\"view\", { key: index }, [\n          _c(\"image\", {\n            staticClass: \"search_imgs\",\n            attrs: { src: item.cover }\n          })\n        ])\n      })\n    )\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"view\", { staticClass: \"search_content\" }, [\n      _c(\"view\", { staticClass: \"search_wapper\" }, [\n        _c(\"image\", {\n          staticClass: \"search_img\",\n          attrs: { src: \"../../static/icos/search.png\" }\n        }),\n        _c(\"input\", {\n          staticClass: \"search_inp\",\n          attrs: {\n            type: \"text\",\n            placeholder: \"找预告\",\n            maxlength: \"10\",\n            \"placeholder-style\": \"font-size: 14px;\"\n          }\n        })\n      ])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=E:/TEST/uniApp_movie/pages/search/search.vue?vue&type=template&id=15557c48&");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"view\", { staticClass: \"page\" }, [\n    _c(\"view\", { staticClass: \"search_content\" }, [\n      _c(\"view\", { staticClass: \"search_wapper\" }, [\n        _c(\"image\", {\n          staticClass: \"search_img\",\n          attrs: { src: \"../../static/icos/search.png\" }\n        }),\n        _c(\"input\", {\n          staticClass: \"search_inp\",\n          attrs: {\n            type: \"text\",\n            \"confirm-type\": \"search\",\n            placeholder: \"找预告\",\n            maxlength: \"10\",\n            \"placeholder-style\": \"font-size: 14px;\",\n            eventid: \"019c1696-0\"\n          },\n          on: { confirm: _vm.sure }\n        })\n      ])\n    ]),\n    _c(\n      \"view\",\n      { staticClass: \"page_block conten_list\" },\n      [\n        _vm._l(_vm.searchItem, function(item, index) {\n          return _c(\"view\", { key: index }, [\n            _c(\"image\", {\n              staticClass: \"search_imgs\",\n              attrs: { src: item.cover }\n            })\n          ])\n        }),\n        _vm.showMore\n          ? _c(\"view\", { staticClass: \"add_more\" }, [_vm._v(_vm._s(_vm.more))])\n          : _vm._e()\n      ],\n      2\n    )\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=E:/TEST/uniApp_movie/pages/search/search.vue?vue&type=template&id=15557c48&");
 
 /***/ }),
 

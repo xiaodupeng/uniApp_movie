@@ -3,13 +3,16 @@
 		<view class="search_content">
 			<view class="search_wapper">
 				<image src="../../static/icos/search.png" class="search_img"></image>
-				<input type="text" placeholder="找预告" maxlength="10" placeholder-style="font-size: 14px;" class="search_inp"/>				
+				<input type="text" confirm-type="search" @confirm="sure" placeholder="找预告" maxlength="10" placeholder-style="font-size: 14px;" class="search_inp"/>				
 			</view>
 		</view>
 		
 		<view class="page_block conten_list">
 			<view class="" v-for="(item,index) in searchItem" :key="index">
 				<image :src="item.cover" class="search_imgs"></image>
+			</view>
+			<view class="add_more" v-if="showMore">
+				{{more}}
 			</view>
 		</view>
 	</view>
@@ -20,6 +23,10 @@
 	export default {
 		data() {
 			return {
+				page:1,
+				keywords:"",
+				showMore:false,
+				more:"加载更多...",
 				searchItem:[]
 			}
 		},
@@ -28,6 +35,24 @@
 		},
 		onPullDownRefresh() {
 			this.getSearchList()
+			this.showMore = false
+		},
+		onReachBottom() {
+			var page = ++this.page
+			if(this.more == '我是有底线的'){
+				return
+			}
+				
+			search(this.keywords,page,15).then(res=>{
+					this.showMore = true
+				if(res.data.rows.length == 0){
+					this.more = '我是有底线的'
+				}else{
+					this.more = '加载更多...'
+					this.searchItem = this.searchItem.concat(res.data.rows)
+				}
+			})
+			
 		},
 		methods: {
 			random (lower, upper) {
@@ -35,13 +60,32 @@
 			},
 			//随机获取列表1-6页内容
 			getSearchList(){
-				// console.log(this.random(1,6))
+				uni.showLoading({
+					mask: true,
+					title: "请稍后..."
+				});
+				let keywords = ""
 				let num = this.random(1,6)
-				search(num).then(res=>{
+				let pageSize = ""
+				search(keywords,num,pageSize).then(res=>{
 					this.searchItem = res.data.rows
-					console.log(res)
 				})				
-			}
+			},
+			sure(e){
+				this.page = 1
+				this.more = ''
+				this.keywords = e.detail.value;
+				search(this.keywords,1,15).then(res=>{
+					if(res.data.rows.length == 0){
+						this.searchItem = []
+						this.showMore = true
+						this.more = '暂无数据'
+					}else{
+						this.searchItem = res.data.rows
+					}
+				})
+			},
+			
 		}
 	}
 </script>
@@ -74,14 +118,21 @@
 
 .conten_list{
 	display: flex;
-	padding: 0 30upx;
-	justify-content: space-between;
+	padding: 0 20upx;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 	padding-top:130upx;
 	.search_imgs{
+		padding: 0 18upx;
 		width: 200upx;
 		height: 260upx;
+		margin-top: 20upx;
+	}
+	.add_more{
+		width: 100%;
+		text-align: center;
 	}
 }
+
 
 </style>
