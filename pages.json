@@ -3,37 +3,42 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				// "navigationBarBackgroundColor": "#F8F8F8",
-				// "navigationBarTextStyle": "black",
-				// "navigationBarTitleText": "",
 				"enablePullDownRefresh":true,
 				"app-plus": {"titleNView": false},
 				"h5":{
 					"titleNView": false
 				}
 			}
-		},
-		{
-			"path": "pages/me/me",
-			"style": {
-				"navigationBarBackgroundColor": "#F8F8F8",
-				"navigationBarTextStyle": "black",
-				"navigationBarTitleText": "about"
-				// "enablePullDownRefresh":true
-				// "app-plus": {"titleNView": false}
-			}
-		}
-	    ,{
+		},{
             "path" : "pages/search/search",
             "style" : {
 				"navigationBarTitleText": "搜索",
 				"enablePullDownRefresh":true
 			}
-        }
-        
-        ,{
-            "path" : "pages/test/test",
-            "style" : {}
+        },{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarBackgroundColor": "#ffd655",
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "我的",
+				"app-plus": {"titleNView": false}
+			}
+		},{
+            "path" : "pages/details/details",
+            "style" : {
+				"navigationBarTitleText": "电影详情",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent",//透明渐变导航栏
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"type":"share"
+							}
+						]						
+					}
+
+				}
+			}
         }
     ],
 	"globalStyle": {
@@ -64,7 +69,7 @@
 				"pagePath":"pages/me/me",
 				"iconPath":"static/tabBarIco/me.png",
 				"selectedIconPath":"static/tabBarIco/me_sel.png",
-				"text":"关于"
+				"text":"我的"
 			}
 		]
 	}

@@ -8,7 +8,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
 
 
 
@@ -43,15 +46,62 @@ var _http = __webpack_require__(/*! ../../api/http.js */ "E:\\TEST\\uniApp_movie
 //
 //
 //
-var _default = { data: function data() {return { searchItem: [] };}, onLoad: function onLoad() {this.getSearchList();}, onPullDownRefresh: function onPullDownRefresh() {this.getSearchList();}, methods: { random: function random(lower, upper) {return Math.floor(Math.random() * (upper - lower)) + lower;}, //随机获取列表1-6页内容
-    getSearchList: function getSearchList() {var _this = this;
-      // console.log(this.random(1,6))
+//
+//
+//
+var _default = { data: function data() {return { page: 1, keywords: "", showMore: false, more: "加载更多...", searchItem: [] };}, onLoad: function onLoad() {this.getSearchList();}, onPullDownRefresh: function onPullDownRefresh() {this.getSearchList();this.showMore = false;}, onReachBottom: function onReachBottom() {var _this = this;var page = ++this.page;if (this.more == '我是有底线的') {
+      return;
+    }
+
+    (0, _http.search)(this.keywords, page, 15).then(function (res) {
+      _this.showMore = true;
+      if (res.data.rows.length == 0) {
+        _this.more = '我是有底线的';
+      } else {
+        _this.more = '加载更多...';
+        _this.searchItem = _this.searchItem.concat(res.data.rows);
+      }
+    });
+
+  },
+  methods: {
+    random: function random(lower, upper) {
+      return Math.floor(Math.random() * (upper - lower)) + lower;
+    },
+    //随机获取列表1-6页内容
+    getSearchList: function getSearchList() {var _this2 = this;
+      uni.showLoading({
+        mask: true,
+        title: "请稍后..." });
+
+      var keywords = "";
       var num = this.random(1, 6);
-      (0, _http.search)(num).then(function (res) {
-        _this.searchItem = res.data.rows;
-        console.log(res);
+      var pageSize = "";
+      (0, _http.search)(keywords, num, pageSize).then(function (res) {
+        _this2.searchItem = res.data.rows;
       });
+    },
+    sure: function sure(e) {var _this3 = this;
+      this.page = 1;
+      this.more = '';
+      this.keywords = e.detail.value;
+      (0, _http.search)(this.keywords, 1, 15).then(function (res) {
+        if (res.data.rows.length == 0) {
+          _this3.searchItem = [];
+          _this3.showMore = true;
+          _this3.more = '暂无数据';
+        } else {
+          _this3.searchItem = res.data.rows;
+        }
+      });
+    },
+
+    goDetails: function goDetails(id) {
+      uni.navigateTo({
+        url: "../details/details?id=".concat(id) });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
 

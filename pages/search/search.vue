@@ -8,7 +8,7 @@
 		</view>
 		
 		<view class="page_block conten_list">
-			<view class="" v-for="(item,index) in searchItem" :key="index">
+			<view class="" v-for="(item,index) in searchItem" :key="index" @click="goDetails(item.id)">
 				<image :src="item.cover" class="search_imgs"></image>
 			</view>
 			<view class="add_more" v-if="showMore">
@@ -85,6 +85,12 @@
 					}
 				})
 			},
+			
+			goDetails(id){
+				uni.navigateTo({
+					url:`../details/details?id=${id}`
+				})
+			}
 			
 		}
 	}

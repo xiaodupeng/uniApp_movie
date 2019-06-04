@@ -36,20 +36,40 @@ var _default =
 
 
   },
+  // watch:{
+  // 	score(){
+  // 		var Star = this.score / 2
+  // 		this.yellowStar = parseInt(this.score / 2)
+  // 		
+  // 		if(Star - this.yellowStar>=0.5){
+  // 			this.banStar = 1
+  // 		}
+  // 		
+  // 		this.grayStar = 5 - this.yellowStar - this.banStar
+  // 	}
+  // },
 
   props: {
-    score: 0,
-    showScore: "" },
+    score: {
+      type: Number,
+      default: 0 },
 
-  created: function created() {
-    var Star = this.score / 2;
-    this.yellowStar = parseInt(this.score / 2);
+    showScore: {
+      type: Boolean,
+      default: false } },
 
-    if (Star - this.yellowStar >= 0.5) {
-      this.banStar = 1;
-    }
 
-    this.grayStar = 5 - this.yellowStar - this.banStar;
+  mounted: function mounted() {var _this = this;
+    setTimeout(function () {
+      var Star = _this.score / 2;
+      _this.yellowStar = parseInt(_this.score / 2);
+
+      if (Star - _this.yellowStar >= 0.5) {
+        _this.banStar = 1;
+      }
+
+      _this.grayStar = 5 - _this.yellowStar - _this.banStar;
+    }, 500);
   } };exports.default = _default;
 
 /***/ }),

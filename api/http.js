@@ -1,6 +1,6 @@
 import Request from '../api/request.js';
 let request = new Request().http
-let qq = 'lee32897867'
+let qq = 'lee35733785'
 
 // 轮播图
 export const swiper = () =>{
@@ -26,4 +26,15 @@ export const like = () =>{
 export const search = (keywords,page,pageSize) =>{
 	 return request('/search/list',{qq:qq,keywords:keywords,page:page,pageSize:pageSize},'POST')
 }
+
+//电影详情
+export const details = (trailerId) =>{
+	 return request(`/search/trailer/${trailerId}`,{qq:qq},'POST')
+}
+
+//导演和演员
+export const directorActor = (trailerId,num) =>{
+	 return request(`/search/staff/${trailerId}/${num}`,{qq:qq},'POST')
+}
+
 

@@ -26,20 +26,40 @@
 			}
 		
 		},
+		// watch:{
+		// 	score(){
+		// 		var Star = this.score / 2
+		// 		this.yellowStar = parseInt(this.score / 2)
+		// 		
+		// 		if(Star - this.yellowStar>=0.5){
+		// 			this.banStar = 1
+		// 		}
+		// 		
+		// 		this.grayStar = 5 - this.yellowStar - this.banStar
+		// 	}
+		// },
 		
 		props:{
-			score:0,
-			showScore:""
+			score:{
+				type:Number,
+				default:0
+			},
+			showScore:{
+				type:Boolean,
+				default:false
+			},
 		},
-		created(){
-			var Star = this.score / 2
-			this.yellowStar = parseInt(this.score / 2)
-			
-			if(Star - this.yellowStar>=0.5){
-				this.banStar = 1
-			}
-			
-			this.grayStar = 5 - this.yellowStar - this.banStar
+		mounted(){
+			setTimeout(()=>{
+				var Star = this.score / 2
+				this.yellowStar = parseInt(this.score / 2)
+				
+				if(Star - this.yellowStar>=0.5){
+					this.banStar = 1
+				}
+				
+				this.grayStar = 5 - this.yellowStar - this.banStar
+			},500)
 		}
 	}
 </script>
