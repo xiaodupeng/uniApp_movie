@@ -40,6 +40,13 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/registLogin/registLogin",
+            "style" : {
+				"navigationBarTitleText": "登录/注册",
+				"navigationBarBackgroundColor": "white"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

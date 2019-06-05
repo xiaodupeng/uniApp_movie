@@ -10,7 +10,8 @@ export default class Request {
                 url: `${path}${router}`,
                 data: data,
 				header:{
-				'content-type':'application/x-www-form-urlencoded'
+				// 'content-type':'application/x-www-form-urlencoded'
+				// 'content-type':'application/json'
 				},
                 method:method,
                 success: (res) => {

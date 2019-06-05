@@ -1,7 +1,25 @@
 <template>
-	<view class="">
-		<view class="content" v-for="(item, index) in student" :key="index">
-			<text :class="[isred?'red':'blue']">{{item.name}}</text>
+	<view class="page">
+		<view class="header_content">
+			<view style="display: flex;align-items: center;">
+				<image class="header_img" src="http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_-5-AFyVyAABLIH8xBTw233.png" mode=""></image>
+				
+				
+				<view v-if="show">
+					<view class="username">
+						{{userInfo.username}}
+					</view>
+					<view class="nickname">
+						账号:{{userInfo.nickname}}
+					</view>
+				</view>
+				
+				<navigator v-else="" url="../registLogin/registLogin"><text class="login">登录/注册</text></navigator>
+			</view>
+			
+			<view v-if="show">
+				<image class="settings" src="../../static/icos/settings.png" mode=""></image>
+			</view>
 		</view>
 	</view>
 
@@ -12,21 +30,22 @@
 	export default {
 		data() {
 			return {
-				title:"about",
-				student:[
-					{name:"hh",age:18},
-					{name:"dd",age:19},
-				],
-				test:true,
-				isred:false
+				show:false,
+				userInfo:{}
+				
 			}
 		},
 		onLoad () {
-			console.log("created")
+			
 		},//vue 的 created
-		onReady () {
-			console.log("onReady")
-		},//vue 的 mounted
+		onShow () {
+			 var user = this.getGlobalUser('globalUser')
+			 console.log(user)
+			 if(user!=null){
+				 this.userInfo = user
+				 this.show = true;
+			 }
+		},
 		methods: {
 			
 		}
@@ -34,17 +53,38 @@
 </script>
 
 <style lang="scss">
-	.content{
-		// background: firebrick;
-		// .title{
-		// 	color: red
-		// }
-	}
-	.red{
-		color: red
-	}
-	.blue{
-		color: blue
+	.header_content{
+		padding: 150upx 50upx 50upx 50upx;
+		background-color: #ffd655;
+		background: url(http://122.152.205.72:88/group1/M00/00/03/CpoxxFwu_1OAYFAIAAAzO_Q1tPg693.png) repeat;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.header_img{
+			width: 120upx;
+			height: 120upx;
+			border-radius: 50%;
+			margin-right: 60upx;
+		}
+		.settings{
+			width: 40upx;
+			height: 40upx;
+		}
+		.login{
+			color: #6a5018;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.username{
+			color: #6a5018;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.nickname{
+			color: #a38e62;
+			font-size: 14px;
+			margin-top: 10upx;
+		}
 	}
 
 
