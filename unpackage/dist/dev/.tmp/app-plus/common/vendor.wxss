@@ -1,0 +1,16 @@
+
+.star_content{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+}
+.star_xing{
+	width: 24rpx;
+	height: 24rpx;
+}
+

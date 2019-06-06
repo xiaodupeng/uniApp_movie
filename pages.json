@@ -9,13 +9,15 @@
 					"titleNView": false
 				}
 			}
-		},{
+		}
+		,{
             "path" : "pages/search/search",
             "style" : {
 				"navigationBarTitleText": "搜索",
 				"enablePullDownRefresh":true
 			}
-        },{
+        }
+		,{
 			"path": "pages/me/me",
 			"style": {
 				"navigationBarBackgroundColor": "#ffd655",
@@ -23,7 +25,8 @@
 				"navigationBarTitleText": "我的",
 				"app-plus": {"titleNView": false}
 			}
-		},{
+		}
+		,{
             "path" : "pages/details/details",
             "style" : {
 				"navigationBarTitleText": "电影详情",
@@ -45,6 +48,14 @@
             "style" : {
 				"navigationBarTitleText": "登录/注册",
 				"navigationBarBackgroundColor": "white"
+			}
+        }
+        ,{
+            "path" : "pages/meInfo/meInfo",
+            "style" : {
+				"navigationBarTitleText": "我的账号",
+				"navigationBarBackgroundColor": "#ffd655",
+				"navigationBarTextStyle": "white"
 			}
         }
     ],

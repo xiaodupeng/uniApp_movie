@@ -1,6 +1,6 @@
 import Request from '../api/request.js';
 let request = new Request().http
-let qq = 'lee77668615'
+let qq = 'lee62470923'
 
 // 轮播图
 export const swiper = () =>{
@@ -42,5 +42,11 @@ export const directorActor = (trailerId,num) =>{
 export const registLogin = (username,password) =>{
 	 return request(`/user/registOrLogin?qq=${qq}`,{"username":username,"password":password},'POST')
 }
+
+//退出登录
+export const logout = (id) =>{
+	 return request(`/user/logout?userId=${id}&qq=${qq}`,{},'POST')
+}
+
 
 

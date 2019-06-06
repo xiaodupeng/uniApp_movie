@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/me/me",
     "pages/search/search",
-    "pages/test/test"
+    "pages/me/me",
+    "pages/details/details",
+    "pages/registLogin/registLogin"
   ],
   "subPackages": [],
   "window": {
@@ -35,7 +36,7 @@
         "pagePath": "pages/me/me",
         "iconPath": "static/tabBarIco/me.png",
         "selectedIconPath": "static/tabBarIco/me_sel.png",
-        "text": "关于"
+        "text": "我的"
       }
     ]
   },

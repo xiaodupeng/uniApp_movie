@@ -2,7 +2,7 @@
 	<view class="page">
 		<view class="header_content">
 			<view style="display: flex;align-items: center;">
-				<image class="header_img" src="http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_-5-AFyVyAABLIH8xBTw233.png" mode=""></image>
+				<image class="header_img" :src="header" mode=""></image>
 				
 				
 				<view v-if="show">
@@ -18,7 +18,7 @@
 			</view>
 			
 			<view v-if="show">
-				<image class="settings" src="../../static/icos/settings.png" mode=""></image>
+				<navigator url="../meInfo/meInfo"><image class="settings" src="../../static/icos/settings.png" mode=""></image></navigator>
 			</view>
 		</view>
 	</view>
@@ -31,8 +31,8 @@
 		data() {
 			return {
 				show:false,
-				userInfo:{}
-				
+				userInfo:{},
+				header:"http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_-5-AFyVyAABLIH8xBTw233.png"
 			}
 		},
 		onLoad () {
@@ -43,7 +43,12 @@
 			 console.log(user)
 			 if(user!=null){
 				 this.userInfo = user
+				 this.header = user.faceImage
 				 this.show = true;
+			 }else{
+				this.userInfo = {};
+				this.header = 'http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_-5-AFyVyAABLIH8xBTw233.png'
+				this.show = false;
 			 }
 		},
 		methods: {

@@ -32,6 +32,14 @@
 				console.log(e)
 				var username = e.detail.value.username;
 				var password = e.detail.value.password;
+				if(!username || !password){
+				 uni.showToast({
+				 	duration:3000,
+					title:"用户名或密码不能为空",
+					icon:"none"
+				 })
+				 return
+				}
 				registLogin(username,password).then(res=>{
 					console.log(res)
 					if (res.status == 200) {
