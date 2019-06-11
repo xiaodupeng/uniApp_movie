@@ -1,6 +1,6 @@
 import Request from '../api/request.js';
 let request = new Request().http
-let qq = 'lee62470923'
+let qq = 'lee17076261'
 
 // 轮播图
 export const swiper = () =>{

@@ -44,7 +44,8 @@
         -ms-flex-align: center;
             align-items: center;
     margin: 0 20rpx 20rpx;
-    border-radius: 5rpx;
+    -webkit-border-radius: 5rpx;
+            border-radius: 5rpx;
 }
 .search_content .search_wapper .search_img {
       width: 40rpx;

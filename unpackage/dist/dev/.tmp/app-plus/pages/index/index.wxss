@@ -105,7 +105,8 @@
 .like_movies .img_poster {
     width: 220rpx;
     height: 290rpx;
-    border-radius: 15rpx;
+    -webkit-border-radius: 15rpx;
+            border-radius: 15rpx;
 }
 .like_movies .details {
     width: 280rpx;

@@ -4,7 +4,9 @@
     "pages/search/search",
     "pages/me/me",
     "pages/details/details",
-    "pages/registLogin/registLogin"
+    "pages/registLogin/registLogin",
+    "pages/meInfo/meInfo",
+    "pages/faceCrop/faceCrop"
   ],
   "subPackages": [],
   "window": {
@@ -40,10 +42,11 @@
       }
     ]
   },
+  "nvueCompiler": "weex",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "uni_app",
-  "compilerVersion": "1.9.9"
+  "compilerVersion": "2.0.0"
 }

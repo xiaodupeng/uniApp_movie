@@ -74,6 +74,19 @@
 								urls: faceArr,
 								current: faceArr[0]
 							})
+						}else if(index == 1){
+							uni.chooseImage({
+								count:1,
+								sizeType: ["compressed"],
+								sourceType: ["album"],
+								success(res) {
+									console.log(res)
+									var tempFilePath = res.tempFilePaths[0];
+									uni.navigateTo({
+										url: "../faceCrop/faceCrop?tempFilePath=" + tempFilePath
+									})
+								}
+							})
 						}
 					}
 				})

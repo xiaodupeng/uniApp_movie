@@ -1,0 +1,2 @@
+<import src="./faceCrop.vue.wxml" />
+    <template is="2a1cdd95" data="{{ ...$root['0'], $root }}"/>
